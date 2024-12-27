@@ -101,6 +101,12 @@ class Tests(unittest.TestCase):
                 if j < maze._num_rows - 1:
                     bottom_cell = maze._cells[i][j+1]
                     self.assertEqual(cell.has_bottom_wall, bottom_cell.has_top_wall)
+
+    def test_reset_cells_visited(self):
+        maze = Maze(0,0, 12, 10, 5, 5, seed=42)
+        for cell_col in maze._cells:
+            for cell in cell_col:
+                self.assertFalse(cell.visited)
     
 
 if __name__ == "__main__":
